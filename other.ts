@@ -1,11 +1,9 @@
-import type { Something as SomethingCommon } from '.';
+import type { Something } from '.';
 
-export type Something = SomethingCommon<number>;
-
-export class SomethingClass<T extends Something> {
+export class SomethingClass<T extends Something<number>> {
   constructor(public value: T) {}
 
-  public doSomething<T extends Something>(value: T): T {
+  public doSomething<T extends Something<number>>(value: T): T {
     return value;
   }
 }
